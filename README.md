@@ -19,3 +19,7 @@ OPTIONS:
     -t, --title <title>      window title [default: Input Form]
         --width <width>      size param (pixel) [default: 850]
 ```
+
+![image](https://user-images.githubusercontent.com/6276021/94457458-8bd90800-01ef-11eb-96b1-0f47272d6744.png)
+
+

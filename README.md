@@ -20,6 +20,41 @@ OPTIONS:
         --width <width>      size param (pixel) [default: 850]
 ```
 
+### Example
+```bash
+$ formdial sample.md |jq
+# or
+$ formdial <sample.md |jq
+```
+
+Input:  sample.md
+```markdown
+# Sample form
+
+## My information
+Name [name] = ___
+Sex [sex] = () Male | male () Female | female () None  | none
+Eye color [eye] = { Amber | amber ; Blue | blue ; Brown | brown ; Gray | gray ; Green | green ; Hazel | hazel }
+
+### Check all that apply
+[condition] = [] Over 6 feet tall | tall [] Over 200 pounds | heavy
+
+### Describe your athletic ability
+"""
+"""[ability]
+```
+
+Pop-up dialog
 ![image](https://user-images.githubusercontent.com/6276021/94457458-8bd90800-01ef-11eb-96b1-0f47272d6744.png)
 
-
+Output:
+```json
+{
+  "name": "alice",
+  "sex": "female",
+  "condition-tall": false,
+  "condition-heavy": true,
+  "ability": "I’m good at dancing.\nMy tennis skill is high.",
+  "eye": "green"
+}
+```

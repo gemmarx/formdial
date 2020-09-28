@@ -1,0 +1,11 @@
+[package]
+name = "formdial"
+version = "0.1.0"
+authors = ["my name"]
+edition = "2018"
+
+
+[dependencies]
+web-view = { version = "0.6.3", features = ["edge"] }
+clap = { version = "3.0.0-beta.2", features = ["yaml"] }
+

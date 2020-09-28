@@ -1,0 +1,28 @@
+name:   formdial
+about:  An HTML form generator for shell scripts.
+
+args:
+    - INPUT:
+        help:  input file (markdown)
+        index:  1
+    - title:
+        long:  title
+        short: t
+        help:  window title
+        takes_value: true
+        default_value: "Input Form"
+    - css:
+        long:  css
+        help:  style sheet
+        takes_value: true
+        multiple: true
+    - width:
+        long:  width
+        help:  size param (pixel)
+        takes_value: true
+        default_value: "850"
+    - height:
+        long:  height
+        help:  size param (pixel)
+        takes_value: true
+        default_value: "600"

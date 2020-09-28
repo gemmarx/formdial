@@ -1,4 +1,4 @@
-# formdialformdial 
+# formdial
 
 ```
 An HTML form generator for shell scripts.

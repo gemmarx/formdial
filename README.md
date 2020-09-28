@@ -51,7 +51,7 @@ Eye color [eye] = { Amber | amber ; Blue | blue ; Brown | brown ; Gray | gray ; 
 ```
 
 Pop-up dialog
-![image](https://user-images.githubusercontent.com/6276021/94457458-8bd90800-01ef-11eb-96b1-0f47272d6744.png)
+<img src="https://user-images.githubusercontent.com/6276021/94457458-8bd90800-01ef-11eb-96b1-0f47272d6744.png" width="500px">
 
 Output:
 ```json

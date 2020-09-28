@@ -1,5 +1,11 @@
 # formdial
 
+### Using:
+Markdown parser:  [markdown-it](https://github.com/markdown-it/markdown-it)  
+DSL for Html form:  [markdown-it-input](https://github.com/rajgoel/markdown-it-input)  
+Webview library:  [webview](https://github.com/webview/webview)  
+Binding of webview for Rust:  [web-view](https://github.com/Boscop/web-view)  
+
 ```
 An HTML form generator for shell scripting.
 

@@ -1,7 +1,7 @@
 # formdial
 
 ```
-An HTML form generator for shell scripts.
+An HTML form generator for shell scripting.
 
 USAGE:
     formdial [OPTIONS] [--] [INPUT]

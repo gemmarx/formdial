@@ -1,5 +1,7 @@
 # Formdial
-Formdial is a tool to display a markdown document with some input fields from shell scripts.
+Formdial is a tool to display a markdown document with some input fields from command line.
+
+<img src="https://user-images.githubusercontent.com/6276021/94700459-73dfc080-0376-11eb-97ec-46683e96a40c.png" width="350px">
 
 ### Dependencies
 Markdown parser:  [markdown-it](https://github.com/markdown-it/markdown-it)  
@@ -40,7 +42,8 @@ $ formdial <sample.md |jq
 PS> formdial.exe sample.md |ConvertFrom-Json |ConvertTo-Json
 ```
 
-### Input:  sample.md
+### Input:
+sample.md
 ```markdown
 # Sample form
 
@@ -63,7 +66,7 @@ Linux
 <img src="https://user-images.githubusercontent.com/6276021/94457458-8bd90800-01ef-11eb-96b1-0f47272d6744.png" width="600px">
 
 MS-Windows
-<img src="https://user-images.githubusercontent.com/6276021/94558007-5b9a7380-029a-11eb-8c8c-ac6738bdfdfa.png" width="600px">
+<img src="https://user-images.githubusercontent.com/6276021/94558007-5b9a7380-029a-11eb-8c8c-ac6738bdfdfa.png" width="450px">
 
 Mac
 <img src="https://user-images.githubusercontent.com/6276021/94578155-534e3280-02b2-11eb-9bfe-7c8313f32760.png" width="600px">

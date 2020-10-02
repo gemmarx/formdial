@@ -29,6 +29,15 @@ OPTIONS:
         --width <width>      size param (pixel) [default: 850]
 ```
 
+### Build
+```bash
+$ npm install
+$ cargo build
+
+# If you need to install
+$ cargo install --path .
+```
+
 ### Example
 ```bash
 # Linux / Mac
@@ -53,7 +62,7 @@ Sex [sex] = () Male | 1 () Female | 2 () None | 9
 Eye color [eye] = { Amber | amb ; Blue | blu ; Brown | bro ; Gray | gry ; Green | grn ; Hazel | haz }
 
 ### Check all that apply
-[condition] = [] Over 6 feet tall | tall [] Over 200 pounds | heavy
+[condition] = [] Over 1.80 m tall | tall [] Over 90 kg | heavy
 
 ### Describe your athletic ability
 """

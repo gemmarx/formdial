@@ -1,9 +1,12 @@
 
 extern crate clap;
+extern crate base64;
 extern crate web_view;
 
 use std::{io, process, fs};
 use std::io::{Read, Write};
+use std::path::Path;
+use std::ffi::OsStr;
 use clap::{App, ArgMatches, load_yaml};
 use web_view::*;
 
@@ -45,6 +48,40 @@ fn get_size(direction: &str, args: &ArgMatches) -> i32 {
         .unwrap_or_else(|e|err!(e))
 }
 
+fn make_html(args: &ArgMatches) -> String {
+    let md = inline_div_with_id("content", &get_md(&args));
+    let css = get_css(&args);
+    let js =
+        inline_asset("script", include_str!("markdown-it.min.js"))
+        + &inline_asset("script", include_str!("markdown-it-input.js"))
+        + &inline_asset("script", include_str!("formdial.js"));
+    let submit = args.value_of("submit").unwrap();
+    format!(r#"
+    <html>
+    <head><meta charset='utf-8'>
+        {style}
+        {script}
+    </head>
+
+    <body{bg}>
+        {div}
+        <p>
+            <button id="ok">{label}</button>
+        </p>
+    </body>
+    </html>
+    "#, style=css, script=js, div=md, label=submit,
+        bg = make_style_background(args))
+}
+
+fn inline_asset(tag: &str, text: &str) -> String {
+    format!(r#"<{tag}>{}</{tag}>"#, text, tag=tag)
+}
+
+fn inline_div_with_id(id: &str, text: &str) -> String {
+    format!(r#"<div id="{}">{}</div>"#, id, text)
+}
+
 fn get_md(args: &ArgMatches) -> String {
     let mut buf = Vec::new();
     if args.is_present("INPUT") {
@@ -81,35 +118,24 @@ fn get_a_css(file: &str) -> String {
         .unwrap_or_else(|e|err!(e))
 }
 
-fn make_html(args: &ArgMatches) -> String {
-    let md = inline_div_with_id("content", &get_md(&args));
-    let css = get_css(&args);
-    let js =
-        inline_asset("script", include_str!("markdown-it.min.js"))
-        + &inline_asset("script", include_str!("markdown-it-input.js"))
-        + &inline_asset("script", include_str!("formdial.js"));
-    format!(r#"
-        <html>
-            <head><meta charset='utf-8'>
-                {style}
-                {script}
-            </head>
-
-            <body>
-                {div}
-                <p>
-                    <button id="ok">submit</button>
-                </p>
-            </body>
-        </html>
-    "#, style=css, script=js, div=md)
+fn make_style_background(args: &ArgMatches) -> String {
+    if args.is_present("background") {
+        let path = Path::new(args.value_of("background").unwrap());
+        format!(
+            r#" style="background:fixed url(data:image/{};base64,{})""#,
+            path.extension()
+                .unwrap_or(OsStr::new(""))
+                .to_str().unwrap(),
+            get_image_base64(path)
+        )
+    } else { String::new() }
 }
 
-fn inline_asset(tag: &str, text: &str) -> String {
-    format!(r#"<{tag}>{}</{tag}>"#, text, tag=tag)
-}
-
-fn inline_div_with_id(id: &str, text: &str) -> String {
-    format!(r#"<div id="{}">{}</div>"#, id, text)
+fn get_image_base64(path: &Path) -> String {
+    let mut buf = Vec::new();
+    fs::File::open(path)
+        .unwrap_or_else(|e|err!(e))
+        .read_to_end(&mut buf).unwrap();
+    base64::encode(buf)
 }
 

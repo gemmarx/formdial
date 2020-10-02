@@ -11,6 +11,11 @@ args:
         help:  window title
         takes_value: true
         default_value: "Input Form"
+    - submit:
+        long:  submit-button
+        help:  label of submit button
+        takes_value: true
+        default_value: "submit"
     - css:
         long:  css
         help:  style sheet
@@ -26,3 +31,7 @@ args:
         help:  size param (pixel)
         takes_value: true
         default_value: "600"
+    - background:
+        long:  background
+        help:  background image
+        takes_value: true

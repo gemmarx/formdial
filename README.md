@@ -1,5 +1,5 @@
 # Formdial
-Formdial is a tool to display a markdown document with some input fields from command line.
+Formdial is a tool to pop-up a markdown document from command line with some input fields.
 
 <img src="https://user-images.githubusercontent.com/6276021/94700459-73dfc080-0376-11eb-97ec-46683e96a40c.png" width="350px">
 
@@ -8,26 +8,6 @@ Markdown parser:  [markdown-it](https://github.com/markdown-it/markdown-it)
 DSL for html form:  [markdown-it-input](https://github.com/rajgoel/markdown-it-input)  
 Rust binding of webview:  [web-view](https://github.com/Boscop/web-view)  
 Style sheet:  [tufte-css](https://github.com/edwardtufte/tufte-css)
-
-```
-An HTML form generator for shell scripting.
-
-USAGE:
-    formdial [OPTIONS] [--] [INPUT]
-
-ARGS:
-    <INPUT>    input file (markdown)
-
-FLAGS:
-    -h, --help       Prints help information
-    -V, --version    Prints version information
-
-OPTIONS:
-        --css <css>...       style sheet
-        --height <height>    size param (pixel) [default: 600]
-    -t, --title <title>      window title [default: Input Form]
-        --width <width>      size param (pixel) [default: 850]
-```
 
 ### Build
 ```bash
@@ -90,4 +70,27 @@ Mac
   "ability": "I’m good at dancing.\nMy tennis skill is high.",
   "eye": "grn"
 }
+```
+
+#### help
+```
+An HTML form generator for shell scripts.
+
+USAGE:
+    formdial [OPTIONS] [--] [INPUT]
+
+ARGS:
+    <INPUT>    input file (markdown)
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+OPTIONS:
+        --background <background>    background image
+        --css <css>...               style sheet
+        --height <height>            size param (pixel) [default: 600]
+        --button-submit <submit>     label of submit button [default: submit]
+        --title <title>              window title [default: Input Form]
+        --width <width>              size param (pixel) [default: 850]
 ```

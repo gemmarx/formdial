@@ -7,12 +7,11 @@ args:
         index:  1
     - title:
         long:  title
-        short: t
         help:  window title
         takes_value: true
         default_value: "Input Form"
     - submit:
-        long:  submit-button
+        long:  button-submit
         help:  label of submit button
         takes_value: true
         default_value: "submit"

@@ -1,8 +1,11 @@
 {
-  "dependencies": {
+  "scripts": {
+    "postinstall": "git clone https://github.com/rajgoel/markdown-it-input node_modules/markdown-it-input"
+  },
+  "dependencies": {},
+  "devDependencies": {
     "markdown-it": "11.0.1",
     "tufte-css": "^1.7.2"
   },
-  "devDependencies": {},
   "license": "MIT"
 }

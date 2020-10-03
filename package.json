@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "postinstall": "git clone https://github.com/rajgoel/markdown-it-input node_modules/markdown-it-input"
+    "prepare": "git clone https://github.com/rajgoel/markdown-it-input node_modules/markdown-it-input"
   },
   "dependencies": {},
   "devDependencies": {

@@ -24,12 +24,12 @@ args:
         long:  width
         help:  size param (pixel)
         takes_value: true
-        default_value: "850"
+        default_value: "480"
     - height:
         long:  height
         help:  size param (pixel)
         takes_value: true
-        default_value: "600"
+        default_value: "680"
     - background:
         long:  background
         help:  background image

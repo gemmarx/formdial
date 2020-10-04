@@ -14,7 +14,7 @@ Style sheet:  [tufte-css](https://github.com/edwardtufte/tufte-css)
 $ npm install
 $ cargo build
 
-# If you need to install
+# to install
 $ cargo install --path .
 ```
 
@@ -72,7 +72,55 @@ Mac
 }
 ```
 
-#### help
+### Another input style
+Put down html tags directly
+if you need controls such as default value, placeholder, validation, etc.
+
+sample2.md
+```markdown
+# Sample form
+
+## My information
+<div>
+Name
+<input placeholder="my name" type="text" name="id">
+</div>
+
+<div>
+Sex
+<label><input checked=true type="radio" name="sex" value="1">Male</label>
+<label><input type="radio" name="sex" value="2">Female</label>
+<label><input type="radio" name="sex" value="9">None</label>
+</div>
+
+<div>
+Eye color
+<select name="eye">
+<option value="amb">Amber</option>
+<option value="blu">Blue</option>
+<option value="bro">Brown</option>
+<option value="gry">Gray</option>
+<option value="grn">Green</option>
+<option value="haz">Hazel</option>
+</select>
+</div>
+
+### Check all that apply
+<div>
+<label><input type="checkbox" name="condition" value="tall">Over 1.80 m tall</label>
+<label><input type="checkbox" name="condition" value="heavy">Over 90 kg</label>
+</div>
+
+### Describe your athletic ability
+<div>
+<textarea required name="ability">
+</textarea>
+</div>
+```
+
+<img src="https://user-images.githubusercontent.com/6276021/95011048-e39cc680-0668-11eb-8a9f-ddc645290498.png" width="480px">
+
+### Other options
 ```
 An HTML form generator for shell scripts.
 
@@ -89,8 +137,8 @@ FLAGS:
 OPTIONS:
         --background <background>    background image
         --css <css>...               style sheet
-        --height <height>            size param (pixel) [default: 600]
+        --height <height>            size param (pixel) [default: 480]
         --button-submit <submit>     label of submit button [default: submit]
         --title <title>              window title [default: Input Form]
-        --width <width>              size param (pixel) [default: 850]
+        --width <width>              size param (pixel) [default: 680]
 ```

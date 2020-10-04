@@ -58,16 +58,20 @@ fn make_html(args: &ArgMatches) -> String {
     let submit = args.value_of("submit").unwrap();
     format!(r#"
     <html>
-    <head><meta charset='utf-8'>
+    <head> <meta charset='utf-8'>
         {style}
         {script}
     </head>
 
     <body{bg}>
-        {div}
-        <p>
-            <button id="ok">{label}</button>
-        </p>
+        <form id="formdial-formtop">
+            {div}
+            <p>
+                <button id="formdial-button-submit">
+                    {label}
+                </button>
+            </p>
+        </form>
     </body>
     </html>
     "#, style=css, script=js, div=md, label=submit,
@@ -85,12 +89,11 @@ fn inline_div_with_id(id: &str, text: &str) -> String {
 fn get_md(args: &ArgMatches) -> String {
     let mut buf = Vec::new();
     if args.is_present("INPUT") {
-        fs::File::open(args.value_of("INPUT").unwrap())
+        let _ = fs::File::open(args.value_of("INPUT").unwrap())
             .unwrap_or_else(|e|err!(e))
-            .read_to_end(&mut buf)
-            .unwrap();
+            .read_to_end(&mut buf);
     } else {
-        io::stdin().read_to_end(&mut buf).unwrap();
+        let _ = io::stdin().read_to_end(&mut buf);
     }
     String::from_utf8(buf)
         .unwrap_or_else(|e|err!(e))
@@ -103,9 +106,9 @@ fn get_css(args: &ArgMatches) -> String {
             .collect()
     } else {
         inline_asset("style",
-            &include_str!("default.css")
-            .to_string()
-        )
+            &include_str!("default.css").to_string())
+        + &inline_asset("style",
+            "textarea,input:invalid { border: #f00 double };")
     }
 }
 
@@ -133,9 +136,9 @@ fn make_style_background(args: &ArgMatches) -> String {
 
 fn get_image_base64(path: &Path) -> String {
     let mut buf = Vec::new();
-    fs::File::open(path)
+    let _ = fs::File::open(path)
         .unwrap_or_else(|e|err!(e))
-        .read_to_end(&mut buf).unwrap();
+        .read_to_end(&mut buf);
     base64::encode(buf)
 }
 

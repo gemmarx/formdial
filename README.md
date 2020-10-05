@@ -57,8 +57,8 @@ Linux
 MS-Windows
 <img src="https://user-images.githubusercontent.com/6276021/95030920-d1b13700-06ed-11eb-9658-a7d61f266ca0.png" width="310px">
 
-Mac
-<img src="https://user-images.githubusercontent.com/6276021/94578155-534e3280-02b2-11eb-9bfe-7c8313f32760.png" width="600px">
+macOS
+<img src="https://user-images.githubusercontent.com/6276021/95075855-e45a5900-074b-11eb-8bf7-ac3f8506304d.png" width="400px">
 
 ### Output:
 ```json

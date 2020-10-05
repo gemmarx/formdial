@@ -63,7 +63,7 @@ fn make_html(args: &ArgMatches) -> String {
         {script}
     </head>
 
-    <body{bg}>
+    <body>
         <form id="formdial-formtop">
             {div}
             <p>
@@ -74,8 +74,7 @@ fn make_html(args: &ArgMatches) -> String {
         </form>
     </body>
     </html>
-    "#, style=css, script=js, div=md, label=submit,
-        bg = make_style_background(args))
+    "#, style=css, script=js, div=md, label=submit)
 }
 
 fn inline_asset(tag: &str, text: &str) -> String {
@@ -105,10 +104,11 @@ fn get_css(args: &ArgMatches) -> String {
             .map(|v| inline_asset("style", &get_a_css(v)))
             .collect()
     } else {
+        let s = make_style_background(args)
+            + "textarea:invalid,input:invalid { border: #f00 double };";
         inline_asset("style",
             &include_str!("default.css").to_string())
-        + &inline_asset("style",
-            "textarea,input:invalid { border: #f00 double };")
+        + &inline_asset("style", &s)
     }
 }
 
@@ -125,7 +125,7 @@ fn make_style_background(args: &ArgMatches) -> String {
     if args.is_present("background") {
         let path = Path::new(args.value_of("background").unwrap());
         format!(
-            r#" style="background:fixed url(data:image/{};base64,{})""#,
+            "body {{ background:fixed url(data:image/{};base64,{}); }}",
             path.extension()
                 .unwrap_or(OsStr::new(""))
                 .to_str().unwrap(),

@@ -52,10 +52,10 @@ Eye color [eye] = { Amber | amb ; Blue | blu ; Brown | bro ; Gray | gry ; Green 
 ### Pop-up dialog
 
 Linux
-<img src="https://user-images.githubusercontent.com/6276021/94457458-8bd90800-01ef-11eb-96b1-0f47272d6744.png" width="600px">
+<img src="https://user-images.githubusercontent.com/6276021/95074197-18804a80-0749-11eb-8dc6-427efd50023d.png" width="400px">
 
 MS-Windows
-<img src="https://user-images.githubusercontent.com/6276021/95030920-d1b13700-06ed-11eb-9658-a7d61f266ca0.png" width="480px">
+<img src="https://user-images.githubusercontent.com/6276021/95030920-d1b13700-06ed-11eb-9658-a7d61f266ca0.png" width="310px">
 
 Mac
 <img src="https://user-images.githubusercontent.com/6276021/94578155-534e3280-02b2-11eb-9bfe-7c8313f32760.png" width="600px">
@@ -72,9 +72,9 @@ Mac
 }
 ```
 
-### Another input style
+### Another style input
 Put down html tags directly
-if you need controls such as default value, placeholder, validation, etc.
+if you need controls such as default values, placeholders, validations, etc.
 
 sample2.md
 ```markdown
@@ -118,7 +118,7 @@ Eye color
 </div>
 ```
 
-<img src="https://user-images.githubusercontent.com/6276021/95011048-e39cc680-0668-11eb-8a9f-ddc645290498.png" width="480px">
+<img src="https://user-images.githubusercontent.com/6276021/95011048-e39cc680-0668-11eb-8a9f-ddc645290498.png" width="400px">
 
 ### Other options
 ```

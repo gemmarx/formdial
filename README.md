@@ -55,7 +55,7 @@ Linux
 <img src="https://user-images.githubusercontent.com/6276021/94457458-8bd90800-01ef-11eb-96b1-0f47272d6744.png" width="600px">
 
 MS-Windows
-<img src="https://user-images.githubusercontent.com/6276021/94558007-5b9a7380-029a-11eb-8c8c-ac6738bdfdfa.png" width="450px">
+<img src="https://user-images.githubusercontent.com/6276021/95030920-d1b13700-06ed-11eb-9658-a7d61f266ca0.png" width="480px">
 
 Mac
 <img src="https://user-images.githubusercontent.com/6276021/94578155-534e3280-02b2-11eb-9bfe-7c8313f32760.png" width="600px">

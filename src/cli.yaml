@@ -5,6 +5,12 @@ args:
     - INPUT:
         help:  input file (markdown)
         index:  1
+    - output:
+        short:  O
+        long:  output
+        help:  output format
+        takes_value: true
+        default_value: json
     - title:
         long:  title
         help:  window title

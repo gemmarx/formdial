@@ -1,13 +1,12 @@
 
-extern crate clap;
-extern crate base64;
-extern crate web_view;
-
 use std::{io, process, fs};
 use std::io::{Read, Write};
 use std::path::Path;
 use std::ffi::OsStr;
+use std::collections::BTreeMap;
 use clap::{App, ArgMatches, load_yaml};
+use serde_json::Value;
+use convert_case::{Case, Casing};
 use web_view::*;
 
 macro_rules! err { ($e:expr) => ( {
@@ -29,12 +28,26 @@ fn main() {
         .user_data(0)
         .invoke_handler(|_, res| match res {
             _ => {
-                println!("{}", res);
+                deser(args, res);
                 process::exit(0);
             }
         })
         .run()
         .unwrap();
+}
+
+fn deser(args: &ArgMatches, res: &str) {
+    let otype = args.value_of("output").unwrap()
+        .to_case(Case::Lower);
+    if "json" == otype {
+        println!("{}", res);
+    } else {
+        let obj: BTreeMap<String, Value> =
+            serde_json::from_str(res).unwrap();
+        for (k, v) in obj.into_iter() {
+            println!("{},{}", k, v);
+        }
+    }
 }
 
 fn get_args() -> ArgMatches {
